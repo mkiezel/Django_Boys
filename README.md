@@ -1,2 +1,2 @@
-# Django_Boys
-Projekt zespołowy UG
+# Gilded_rose
+Projekt zaliczeniowy ZJP UG
