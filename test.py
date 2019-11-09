@@ -27,44 +27,24 @@ def test(days,version):
         if len(sys.argv) > 1:
             days = int(sys.argv[1]) + 1
         for day in range(days):
-            #print("-------- day %s --------" % day)
             for item in items:
-                #print(item)
                 x += str(item)
                 x += "\n"
-            #print("")
             Gildedrose.GildedRose(items).update_quality()
     return x
+t=[]
+t.append(test(7,"gilded_rose_v1"))
+t.append(test(7,pmName))
+t.append(test(15,"gilded_rose_v1"))
+t.append(test(15,pmName))
+t.append(test(25,"gilded_rose_v1"))
+t.append(test(25,pmName))
+t.append(test(40,"gilded_rose_v1"))
+t.append(test(40,pmName))
 
-a = test(7,"gilded_rose_v1")
-ap = test(7,pmName)
-b = test(15,"gilded_rose_v1")
-bp = test(15,pmName)
-c = test(25,"gilded_rose_v1")
-cp = test(25,pmName)
-d = test(40,"gilded_rose_v1")
-dp = test(40,pmName)
-
-print("test 1:",end = "")
-if a == ap:
-    print(" Passed")
-else:
-    print(" Fail")
-
-print("test 2:",end = "")
-if b == bp:
-    print(" Passed")
-else:
-    print(" Fail")
-
-print("test 3:",end = "")
-if c == cp:
-    print(" Passed")
-else:
-    print(" Fail")
-
-print("test 4:",end = "")
-if d == dp:
-    print(" Passed")
-else:
-    print(" Fail")
+for i in range (0,len(t)-1,2):
+    print("test "+ str(int(i/2+1)) +":",end = "")
+    if t[i] == t[i+1]:
+        print(" Passed!")
+    else:
+        print(" Fail!")
