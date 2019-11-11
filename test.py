@@ -26,7 +26,7 @@ def test(days,version):
         import sys
         if len(sys.argv) > 1:
             days = int(sys.argv[1]) + 1
-        for day in range(days):
+        for _ in range(days):
             for item in items:
                 x += str(item)
                 x += "\n"
