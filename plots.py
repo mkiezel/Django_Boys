@@ -33,3 +33,25 @@ plt.ylabel("wynik testu")
 plt.title("Zmiany złożoności cyklomatycznej na przestrzeni wersji")
 plt.legend()
 plt.show()
+
+
+labels = ['linii kodu',"stosunek ilości\nznaków", "średnia metoda", "Najgorsza metoda"]
+
+v7 = [44,36.5,17/6,7]#ilość słów 966
+
+
+x = np.arange(len(labels))
+width = 0.3
+
+fig, ax = plt.subplots()
+rects1 = ax.bar(x - width, v1, width, label='v1',color = "red")
+rects2 = ax.bar(x , v7, width, label='v7',color = "orange")
+rects3 = ax.bar(x + width, vinf, width, label='v∞',color = "green")
+
+ax.set_ylabel('Wyniki')
+ax.set_title('Porówanie wersji (im mniej tym lepiej)')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+plt.show()
