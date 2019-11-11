@@ -21,13 +21,13 @@ ax.legend()
 plt.show()
 
 
-names = ["v1","v2","v3","v4",'v∞']
-metoda = [26,22,22,22,6]
-klasa = [15,13,13,13,5]
+names = ["v1","v2","v3","v4","v5","v6","v7",'v∞']
+metoda = [26,22,17,16,13,9,7,6]
+klasa = [15,13,10,10,8,6,5,5]
 
 plt.plot(names, metoda,marker='o',label = 'metoda "update_quality"')
 plt.plot(names, klasa,marker='o', label = 'klasa "GildedRose"')
-plt.ylim(0,30)
+plt.ylim(4,28)
 plt.xlabel("wersja")
 plt.ylabel("wynik testu")
 plt.title("Zmiany złożoności cyklomatycznej na przestrzeni wersji")
