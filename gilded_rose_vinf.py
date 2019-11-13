@@ -8,13 +8,13 @@ class GildedRose(object):
             if item.name == "Sulfuras, Hand of Ragnaros":
                 pass
             elif item.name == "Aged Brie":
-                item.update_item(1,1)
+                item.update_item(1, 1)
             elif item.name == "Backstage passes to a TAFKAL80ETC concert":
                 item.concert_update()
             elif item.name == "Conjured Mana Cake":
-                item.update_item(-2,1)
+                item.update_item(-2, 1)
             else:
-                item.update_item(-1,1)
+                item.update_item(-1, 1)
 
 
 class Item:
@@ -26,7 +26,7 @@ class Item:
     def __repr__(self):
         return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
 
-    def update_item(self,qualit,sellin):
+    def update_item(self, qualit, sellin):
         if self.sell_in > 0:
             self.quality += qualit
         else:

@@ -9,8 +9,8 @@ x = np.arange(len(labels))
 width = 0.4
 
 fig, ax = plt.subplots()
-rects1 = ax.bar(x - width/2, v1, width, label='v1',color = "red")
-rects2 = ax.bar(x + width/2, vinf, width, label='v∞',color = "green")
+rects1 = ax.bar(x - width/2, v1, width, label='v1',color = "red",edgecolor = "black")
+rects2 = ax.bar(x + width/2, vinf, width, label='v∞',color = "green",edgecolor = "black")
 
 ax.set_ylabel('Wyniki')
 ax.set_title('Porówanie wersji (im mniej tym lepiej)')
@@ -20,14 +20,13 @@ ax.legend()
 
 plt.show()
 
-
 names = ["v1","v2","v3","v4","v5","v6","v7",'v∞']
-metoda = [26,22,17,16,13,9,7,6]
-klasa = [15,13,10,10,8,6,5,5]
+metoda = [26,22,17,16,13,9,5,6]
+klasa = [15,13,10,10,8,6,4,5]
 
 plt.plot(names, metoda,marker='o',label = 'metoda "update_quality"')
 plt.plot(names, klasa,marker='o', label = 'klasa "GildedRose"')
-plt.ylim(4,28)
+plt.ylim(0,28)
 plt.xlabel("wersja")
 plt.ylabel("wynik testu")
 plt.title("Zmiany złożoności cyklomatycznej na przestrzeni wersji")
@@ -37,16 +36,16 @@ plt.show()
 
 labels = ['linii kodu',"stosunek ilości\nznaków", "średnia metoda", "Najgorsza metoda"]
 
-v7 = [44,36.5,17/6,7]#ilość słów 966
+v7 = [45,38.6,18/7,5]
 
 
 x = np.arange(len(labels))
 width = 0.3
 
 fig, ax = plt.subplots()
-rects1 = ax.bar(x - width, v1, width, label='v1',color = "red")
-rects2 = ax.bar(x , v7, width, label='v7',color = "orange")
-rects3 = ax.bar(x + width, vinf, width, label='v∞',color = "green")
+rects1 = ax.bar(x - width, v1, width, label='v1',color = "red",edgecolor = "black")
+rects2 = ax.bar(x , v7, width, label='v7',color = "orange",edgecolor = "black")
+rects3 = ax.bar(x + width, vinf, width, label='v∞',color = "green",edgecolor = "black")
 
 ax.set_ylabel('Wyniki')
 ax.set_title('Porówanie wersji (im mniej tym lepiej)')

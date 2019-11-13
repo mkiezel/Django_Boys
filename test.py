@@ -1,9 +1,7 @@
 from __future__ import print_function
 
-
 PN = input('Podaj numer wersji:')
 pmName = "gilded_rose_v" + PN
-
 
 def test(days,version):
     Gildedrose = __import__(version)
@@ -21,7 +19,6 @@ def test(days,version):
                 Gildedrose.Item(name="Backstage passes to a TAFKAL80ETC concert", sell_in=5, quality=49),
                 Gildedrose.Item(name="Conjured Mana Cake", sell_in=3, quality=14),  # <-- :O
                 ]
-
 
         import sys
         if len(sys.argv) > 1:
@@ -48,3 +45,4 @@ for i in range (0,len(t)-1,2):
         print(" Passed!")
     else:
         print(" Fail!")
+        

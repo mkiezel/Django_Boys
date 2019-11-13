@@ -6,8 +6,6 @@ class GildedRose(object):
         self.items = items
 
     def update_quality(self):
-
-
         
         for item in self.items:
             if item.name == "Sulfuras, Hand of Ragnaros":
@@ -40,7 +38,6 @@ class GildedRose(object):
                 item.quality = 50
             if item.quality < 0:
                 item.quality = 0      
-
 
 
 class Item:

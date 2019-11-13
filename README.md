@@ -23,4 +23,4 @@ Program poprosi o podanie wersji Gilded_rose, czyli uzupełnienie
 #### v5 -> v6
 * dodanie metody "concert_update()"
 #### v6 -> v7
-* dodanie zmiennej, która pozwoliła usunąć dublujący się kod
+* przeniesienie aktualizacji przedmiotów do metody, która pozwoliła usunąć dublujący się kod

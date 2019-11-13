@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 class GildedRose(object):
 
     def __init__(self, items):
@@ -17,20 +15,11 @@ class GildedRose(object):
                 continue
             
             item.sell_in -= 1
-            
-            change = 1
-
             if item.sell_in < 0:
-                change = 2
-                
-            if item.name == "Aged Brie":
-                item.quality += change
+                item.item_update(2)
             else:
-                item.quality -= change
-            if item.name == "Conjured Mana Cake":
-                item.quality -= change
-
-            item.item_quality_range_check()                   
+                item.item_update(1)
+            item.item_quality_range_check()                                   
 
 
 
@@ -58,4 +47,11 @@ class Item:
         self.sell_in -= 1
         if self.sell_in < 0:
             self.quality = 0
-        
+
+    def item_update(self,change):
+        if self.name == "Aged Brie":
+            self.quality += change
+        else:
+            self.quality -= change
+        if self.name == "Conjured Mana Cake":
+            self.quality -= change
