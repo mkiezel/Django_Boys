@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 class GildedRose(object):
 
     def __init__(self, items):
@@ -11,39 +9,18 @@ class GildedRose(object):
             if item.name == "Sulfuras, Hand of Ragnaros":
                 continue
 
-            if item.name == "Aged Brie" or item.name == "Backstage passes to a TAFKAL80ETC concert":
-                item.quality = item.quality + 1
-            else:
-                item.quality = item.quality - 1
-                if item.name == "Conjured Mana Cake":
-                    item.quality = item.quality - 1
-                
             if item.name == "Backstage passes to a TAFKAL80ETC concert":
-                if item.sell_in < 11:
-                    item.quality = item.quality + 1
-                if item.sell_in < 6:
-                    item.quality = item.quality + 1
-
-            item.sell_in = item.sell_in - 1
+                item.concert_update()
+                item.item_quality_range_check()
+                continue
+            
+            item.sell_in -= 1
             if item.sell_in < 0:
-                if item.name == "Aged Brie":
-                    item.quality = item.quality + 1
+                item.item_update(2)
+            else:
+                item.item_update(1)
+            item.item_quality_range_check()                                   
 
-                else:
-                    if item.name == "Backstage passes to a TAFKAL80ETC concert":
-                        item.quality = item.quality - item.quality     
-
-                    else:
-                        if item.name == "Conjured Mana Cake" and item.quality > 1:
-                            item.quality = item.quality - 2                                       
-                        else:
-                            item.quality = item.quality - 1
-
-                            
-            if item.quality > 50:
-                item.quality = 50
-            if item.quality < 0:
-                item.quality = 0      
 
 
 class Item:
@@ -54,3 +31,27 @@ class Item:
 
     def __repr__(self):
         return "%s, %s, %s" % (self.name, self.sell_in, self.quality)
+
+    def item_quality_range_check(self):
+        if self.quality > 50:
+            self.quality = 50
+        if self.quality < 0:
+            self.quality = 0 
+
+    def concert_update(self):
+        self.quality += 1
+        if self.sell_in < 11:
+            self.quality += 1
+        if self.sell_in < 6:
+            self.quality += 1
+        self.sell_in -= 1
+        if self.sell_in < 0:
+            self.quality = 0
+
+    def item_update(self,change):
+        if self.name == "Aged Brie":
+            self.quality += change
+        else:
+            self.quality -= change
+        if self.name == "Conjured Mana Cake":
+            self.quality -= change
